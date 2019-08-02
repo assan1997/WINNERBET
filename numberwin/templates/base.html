@@ -1,0 +1,144 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>{%block title%}WinnerBet | PARIS EN LIGNE{%endblock%}</title>
+    <style>
+            .body{
+                background-color: #343a40;
+            }
+            .paris{
+              border-color:whitesmoke;
+            }
+            .np{
+              border-color: #95999c;
+            }
+            .leagues >h4{
+              color:#fff;
+            }
+            .leagues >ul >li{
+              list-style-type:none;
+              color:#fff;
+              margin-bottom:5px;
+            }
+            button{
+              width:100%;
+            }
+    </style>
+    <link rel="stylesheet"href="{%static 'css/bootstrap.min.css'%}">
+    </head>
+    <body class="body">
+    {%block nav%}
+    <nav class="navbar navbar-expand-lg ">
+  <a class="navbar-brand" href="#">WinnerBet</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{%url 'home'%}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'ang'%}"><span><img style="border-radius:20px;height:20px;width:20px;"class="img-fluid"src="{%static 'app/img/ang.png'%}"> Premier league</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span><img style="border-radius:20px;height:20px;width:20px;"class="img-fluid"src="{%static 'app/img/esp.png'%}"> La liga</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span><img style="border-radius:20px;height:20px;width:20px;"class="img-fluid"src="{%static 'app/img/all.png'%}"> Bundesliga</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span><img style="border-radius:20px;height:20px;width:20px;"class="img-fluid"src="{%static 'app/img/fr.jpg'%}"> Ligue 1 conforama</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span><img style="border-radius:20px;height:20px;width:20px;"class="img-fluid"src="{%static 'app/img/ita.png'%}"> Serie A</span></a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+    {%endblock%}
+    {%block banniere%}
+    <div class="row">
+    <div style="height:350px;background:url('{%static 'app/img/cv.jpg'%}')center center;background-size:cover"class="col-md-12">
+    </div>
+    </div>
+    {%endblock%}
+    {%block content%}
+    {%endblock%}
+    {%block footer%}
+    <!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> WinnerBet</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    {%endblock%}
+        <script src="{% static 'js/jquery.min.js'%}"></script>
+        <script>
+        $(function(){
+        
+          bet =$('.bet')
+          np =$('.np')
+          np.html('<span class="ac">Aucune selection</span>')
+          ms=$('.mise')
+          pr =$('.pariez')
+          var total=1
+          var conv
+          var obj ={}
+          bet.click(function(){
+            var match =$(this).attr('data_match')
+            var prono=$(this).attr('data_pr')
+            var cote =($(this).html())
+            $('.ac').css({
+              'display':'none',
+            })
+            $('.bet-control').css({
+              'display':'block',
+            })
+            $.ajax({
+            type:'POST',
+            url:"{% url 'add' %}",
+            data:{
+              'match':match,
+              'prono':prono,
+              'cote':cote
+            },
+            dataType:'json',
+            success:function(data){
+              conv=parseFloat(data.cote)
+              total=total*conv
+             np.append(
+               '<div class="row btn-outline-secondary"style="padding:10px;border-bottom:1px solid #95999c">'+
+                    '<p>'+'Match: '+data.match+'</p>'+'<br>'+
+                    '<p>' +'Resultat: '+data.prono+ ' <span>'+ ' x ' + data.cote +'</span>'+'</p>'+
+               '</div>')
+               if (total >1){
+                $('.total').html('<span style="font-style:italic">Tx : </span>'+ total.toFixed(2))
+               }else{
+                $('.total').html('')
+               }
+              } 
+              })
+              ms.keyup(function(){
+                var mise =ms.val()
+                var gain =mise*total
+                var fcfa =gain*650
+                if (mise!=0){
+                  $('.gain').html('<span style="font-style:italic">Gain : </span>'+  gain.toFixed(2) + ' €')
+                  $('.gain').append('<br>'+fcfa.toFixed(0) + 'XOF')
+                  pr.html(mise + ' €')
+                }
+                else if(mise==''){
+                  $('.gain').html('')
+                  pr.html('')
+                }
+              })
+           })
+        })
+        </script>
+    </body>
+</html>

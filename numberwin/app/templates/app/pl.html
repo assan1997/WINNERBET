@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{%load static%}
+{%block content%}
+<div class="row">
+<div style="height:600px;background: url('{%static 'app/img/ban-lat.jpg'%}')center center ;background-size:cover"class="leagues col-lg-3">
+</div>
+<div class="col-lg-6">
+  <div class="row">
+      <table style="font-size:0.8em"class="table table-dark table-bordered table-sm">
+          <thead>
+              <tr>
+              <th scope="col">Heure</th>
+                <th scope="col">Matchs</th>
+                <th scope="col">1</th>
+                <th scope="col">Null</th>
+                <th scope="col">2</th>
+              </tr>
+            </thead>
+            <tbody>
+             <td  colspan="5">Vendredi 09 Août</td>
+              <tr>
+                <th scope="row">21:00</th>
+                <td>Liverpool - Norwich City</td>
+                <td><button data_match="Liverpool - Norwich City"data_pr="Liverpool"class="bet btn btn-warning">1.17</button></td>
+                <td><button data_match="Liverpool - Norwich City"data_pr="Null"class="bet btn btn-warning">9.40</button></td>
+                <td><button data_match="Liverpool - Norwich City"data_pr="Norwich"class="bet btn btn-warning">18.00</button></td>
+              </tr>
+               <td  colspan="5">Samedi 10 Août</td>
+              <tr>
+                <th scope="row">13:00</th>
+                <td>West Ham - Manchester City</td>
+                <td><button data_match="West Ham - Manchester City"data_pr="West Ham"class="bet btn btn-warning">11.50</button></td>
+                <td><button data_match="West Ham - Manchester City"data_pr="Null"class="bet btn btn-warning">1.50</button></td>
+                <td><button data_match="West Ham - Manchester City"data_pr="Manchester City"class="bet btn btn-warning">1.28</button></td>
+              </tr>
+               <tr>
+                <th scope="row">16:00</th>
+                <td>Bournemouth - Sheffield United</td>
+                <td><button data_match="Bournemouth - Sheffield United"data_pr="Bournemouth"class="bet btn btn-warning">1.94</button></td>
+                <td><button data_match="Bournemouth - Sheffield United"data_pr="Null"class="bet btn btn-warning">3.85</button></td>
+                <td><button data_match="Bournemouth - Sheffield United"data_pr="Sheffield United"class="bet btn btn-warning">4.08</button></td>
+              </tr>
+              <tr>
+                <th scope="row">16:00</th>
+                <td>Burnley - Southampton</td>
+                <td><button data_match="Burnley - Southampton"data_pr="Burnley"class="bet btn btn-warning">2.65</button></td>
+                <td><button data_match="Burnley - Southampton"data_pr="Null"class="bet btn btn-warning">3.33</button></td>
+                <td><button data_match="Burnley - Southampton"data_pr="Southampton"class="bet btn btn-warning">2.91</button></td>
+              </tr>
+              <tr>
+                <th scope="row">16:00</th>
+                <td> Crystal Palace - Everton</td>
+                <td><button data_match="Crystal Palace - Everton"data_pr="Crystal Palace"class="bet btn btn-warning">2.92</button></td>
+                <td><button data_match="Crystal Palace - Everton"data_pr="Null"class="bet btn btn-warning">3.32</button></td>
+                <td><button data_match="Crystal Palace - Everton"data_pr="Everton"class="bet btn btn-warning">2.65</button></td>
+              </tr>
+               <tr>
+                <th scope="row">16:00</th>
+                <td>  Watford - Brighton</td>
+                <td><button data_match="Watford - Brighton"data_pr="Watford"class="bet btn btn-warning">1.95</button></td>
+                <td><button data_match="Watford - Brighton"data_pr="Null"class="bet btn btn-warning">3.48</button></td>
+                <td><button data_match="Watford - Brighton"data_pr="Brighton"class="bet btn btn-warning">4.55</button></td>
+              </tr>
+              <tr>
+                <th scope="row"> 18:30</th>
+                <td>Tottenham - Aston Villa</td>
+                <td><button data_match="Tottenham - Aston Villa"data_pr="Tottenham"class="bet btn btn-warning">1.30</button></td>
+                <td><button data_match="Tottenham - Aston Villa"data_pr="Null"class="bet btn btn-warning">6.20</button></td>
+                <td><button data_match="Tottenham - Aston Villa"data_pr="Aston Villa"class="bet btn btn-warning">11.25</button></td>
+              </tr>
+               <td  colspan="5">Dimanche 11 Août</td>
+               <tr>
+                <th scope="row"> 15:00</th>
+                <td> Newcastle - Arsenal</td>
+                <td><button data_match="Newcastle - Arsenal "data_pr="Newcastle"class="bet btn btn-warning">3.93</button></td>
+                <td><button data_match="Newcastle - Arsenal"data_pr="Null"class="bet btn btn-warning">3.80</button></td>
+                <td><button data_match="Newcastle - Arsenal"data_pr="Arsenal"class="bet btn btn-warning">1.99</button></td>
+              </tr>
+              <tr>
+                <th scope="row"> 15:00</th>
+                <td>  Leicester - Wolverhampton</td>
+                <td><button data_match="Leicester - Wolverhampton "data_pr="Leicester"class="bet btn btn-warning">2.42</button></td>
+                <td><button data_match=" Leicester - Wolverhampton"data_pr="Null"class="bet btn btn-warning">3.33</button></td>
+                <td><button data_match=" Leicester - Wolverhampton"data_pr="Wolverhampton"class="bet btn btn-warning">3.27</button></td>
+              </tr>
+                <td  colspan="5">Lundi 12 Août</td>
+                 <tr>
+                <th scope="row">  17:30</th>
+                <td>  Manchester United - Chelsea</td>
+                <td><button data_match=" Manchester United - Chelsea "data_pr="Manchester United"class="bet btn btn-warning">2.22</button></td>
+                <td><button data_match=" Manchester United - Chelsea"data_pr="Null"class="bet btn btn-warning">3.48</button></td>
+                <td><button data_match=" Manchester United - Chelsea"data_pr="Chelsea"class="bet btn btn-warning">3.53</button></td>
+              </tr>
+            </tbody>
+          </table>
+  </div>
+</div>
+<div class="paris col-lg-3">
+<div class="row">
+<div style="text-align:center;color:black;background:rgb(235, 191, 47);padding:10px;height:40px;"class="col-lg-12">
+<h5 style="font-size: 1.0em;">Liste des selections</h5>
+</div>
+<div style="text-align:center;height:450px;overflow-y:scroll;font-size:0.9em;padding:10px;color:#ffc107;"class="np col-lg-12">
+</div>
+<div style="display:none;font-style:italic;font-size:0.9em;color:#ffc107"class="bet-control col-lg-12">
+  <div class="row">
+    <div class="col-lg-4 total"></div>
+    <div class="col-lg-8 gain"></div>
+  </div>
+Mise (€): <input style="border-color:#fff;color:#fff;background-color: #343a40;"class="mise form-control"type="number"><br>
+<button style="font-size: 0.9em;"class="form-control btn btn-outline-warning">Pariez maintenant <span class="pariez"></span></button>
+</div>
+<div class="penc col-lg-12">
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
